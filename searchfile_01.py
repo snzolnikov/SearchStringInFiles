@@ -1,7 +1,10 @@
+# Поиск введенной строки в текстовых файлах.
+# Если строка найдена в файле тогда программа копирует этот файл в указанный каталог.
+
 import os, shutil
 
-KEY_FOR_SEARCH = input('Что ищем???\n')
-PATH_FOR_COPY = input('Куда копировать файлы?\n')
+KEY_FOR_SEARCH = input('Введите строку поиска\n')
+PATH_FOR_COPY = input('Куда копировать найденные файлы которые содержат искомую строку?\n')
 
 
 def search():
@@ -14,8 +17,10 @@ def search():
 
 
 def read_from_pathtxt(path):
+    print("открываем файл для поиска", path)
     with open(path) as r:
         for i in r:
+            print("строка из файла", i)
             if KEY_FOR_SEARCH in i:
                 return copy(path)
 
